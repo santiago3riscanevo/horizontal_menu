@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>New menu</title>
+</head>
+
+<body>
+    <div class="content">
+        <div class="space">
+
+        </div>
+        <div class="space">
+    
+        </div>
+        <div class="space">
+    
+        </div>
+        <div class="space">
+            
+        </div>
+    </div>
+    <script>
+        function Menu(){
+            this.elementItems = document.querySelectorAll('.content > div')
+        }
+
+        Menu.prototype.move = function(){
+            this.elementItems.forEach(data => {
+                data.addEventListener("click", (e)=>{
+                    // debugger
+                    for(let i = 0; i < this.elementItems.length; i++){
+                        if(e.target !== this.elementItems[i]){
+                            this.elementItems[i].style.width = 80 + 'px'
+                        }
+                    } 
+
+                    if(data.style.width == 90 + 'vw'){
+                        data.style.width = 80 + 'px'
+                    }else{
+                        data.style.width = 90 + 'vw'
+                    }
+                })
+            })
+        }
+        const dinamicMenu = new Menu();
+        dinamicMenu.move()
+    </script>
+</body>
+</html>
